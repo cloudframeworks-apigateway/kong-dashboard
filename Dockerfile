@@ -13,3 +13,5 @@ RUN npm install && \
 EXPOSE 8080
 
 ENTRYPOINT ["./docker/entrypoint.sh"]
+
+CMD ["start","--kong-url","http://127.0.0.1:8001"]
