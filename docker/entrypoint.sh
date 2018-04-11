@@ -1,9 +1,15 @@
 #!/bin/bash
+trap "exist" INT TERM
+
+exist(){
+   echo "Capture exit signal.. exit.."
+   exit 0
+}
 
 if [ $# -gt 0 ]; then
     exec ./bin/kong-dashboard.js $@
 else
-    kongurl = "http://$KONGADMIN_HOST:$KONGADMIN_PORT"
+    kongurl="http://$KONGADMIN_HOST:$KONGADMIN_PORT"
     # Prepare kong admin api
     for (( i = 0; i < 20; i++))
     do

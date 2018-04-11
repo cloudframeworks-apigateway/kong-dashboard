@@ -10,7 +10,7 @@ RUN npm install && \
     rm -rf node_modules/ && \
     npm install --production
 
-RUN apk --no-cache add bash nc
+RUN apk --no-cache add bash
 
 EXPOSE 8080
 
