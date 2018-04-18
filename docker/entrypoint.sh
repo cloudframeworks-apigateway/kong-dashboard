@@ -24,7 +24,15 @@ else
         fi
         sleep 2
     done
-    exec ./bin/kong-dashboard.js start --kong-url $kongurl
+    sleep 3
+    for (( i = 0; i < 3; i++))
+    do
+        exec ./bin/kong-dashboard.js start --kong-url $kongurl
+        if [[ $? -eq 0 ]];then
+            break
+        fi
+        sleep 3
+    done    
 fi
 
 
